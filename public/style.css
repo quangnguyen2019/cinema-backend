@@ -1,0 +1,13 @@
+body {
+    /* background-color: #ececec; */
+    background-image: url(image/di45Be95T.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -80px;
+}
+
+h1, h2 {
+    color: white;
+    text-align: center;
+    text-shadow: .4px 2px 12px rgb(0, 0, 0, 0.2);
+}

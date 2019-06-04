@@ -1,0 +1,20 @@
+extends ./layout/common
+
+block content2
+    h2 Nội Dung Phim 
+    hr
+
+    .row
+        .col-md-3
+            img(src="/image/poster/" + movie.poster_image, width="220px")
+        .col-md-9
+            h3= movie.name
+            br
+            h6 Khởi chiếu: 
+                span= movie.publish_date
+            h6 Thời Lượng: 
+                span= movie.duration + " phút"
+
+    .row.mt-3
+        
+    
