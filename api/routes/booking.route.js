@@ -4,14 +4,14 @@ const controller = require('../controllers/booking.controller');
 
 const router = express.Router();
 
-router.get('/', controller.GetBookings);
+router.get('/getBookings', controller.GetBookings);
 
-router.get('/:id', controller.GetDetailBooking);
+router.get('/getBooking/:id', controller.GetDetailBooking);
 
-router.post('/', controller.AddBooking);
+router.post('/addBooking', controller.AddBooking);
 
-router.delete('/:id', controller.RemoveBooking);
+router.delete('/removeBooking/:id', controller.RemoveBooking);
 
-router.patch('/:id', controller.UpdateBooking);
+router.patch('/updateBooking/:id', controller.UpdateBooking);
 
 module.exports = router;

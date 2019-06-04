@@ -4,14 +4,14 @@ const controller = require('../controllers/ticket.controller');
 
 const router = express.Router();
 
-router.get('/', controller.GetTickets);
+router.get('/getTickets', controller.GetTickets);
 
-router.get('/:id', controller.GetDetailTicket);
+router.get('/getTicket/:id', controller.GetDetailTicket);
 
-router.post('/', controller.AddTicket);
+router.post('/addTicket', controller.AddTicket);
 
-router.delete('/:id', controller.RemoveTicket);
+router.delete('/removeTicket/:id', controller.RemoveTicket);
 
-router.patch('/:id', controller.UpdateTicket);
+router.patch('/updateTicket/:id', controller.UpdateTicket);
 
 module.exports = router;

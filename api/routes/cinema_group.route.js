@@ -4,14 +4,14 @@ const controller = require('../controllers/cinema_group.controller');
 
 const router = express.Router();
 
-router.get('/', controller.GetCinemaGroups);
+router.get('/getCinemaGroups', controller.GetCinemaGroups);
 
-router.get('/:id', controller.GetDetailCinemaGroup);
+router.get('/getCinemaGroup/:id', controller.GetDetailCinemaGroup);
 
-router.post('/', controller.AddCinemaGroup);
+router.post('/addCinemaGroup', controller.AddCinemaGroup);
 
-router.delete('/:id', controller.RemoveCinemaGroup);
+router.delete('/removeCinemaGroup/:id', controller.RemoveCinemaGroup);
 
-router.patch('/:id', controller.UpdateCinemaGroup);
+router.patch('/updateCinemaGroup/:id', controller.UpdateCinemaGroup);
 
 module.exports = router;

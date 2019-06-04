@@ -4,14 +4,14 @@ const controller = require('../controllers/movie.controller');
 
 const router = express.Router();
 
-router.get('/', controller.GetMovies);
+router.get('/getMovies', controller.GetMovies);
 
-router.get('/:id', controller.GetDetailMovie);
+router.get('/getMovie/:id', controller.GetDetailMovie);
 
-router.post('/', controller.AddMovie);
+router.post('/addMovie', controller.AddMovie);
 
-router.delete('/:id', controller.RemoveMovie);
+router.delete('/removeMovie/:id', controller.RemoveMovie);
 
-router.patch('/:id', controller.UpdateMovie);
+router.patch('/updateMovie/:id', controller.UpdateMovie);
 
 module.exports = router;

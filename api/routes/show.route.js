@@ -4,14 +4,14 @@ const controller = require('../controllers/show.controller');
 
 const router = express.Router();
 
-router.get('/', controller.GetShows);
+router.get('/getShows', controller.GetShows);
 
-router.get('/:id', controller.GetDetailShow);
+router.get('/getShow/:id', controller.GetDetailShow);
 
-router.post('/', controller.AddShow);
+router.post('/addShow', controller.AddShow);
 
-router.delete('/:id', controller.RemoveShow);
+router.delete('/removeShow/:id', controller.RemoveShow);
 
-router.patch('/:id', controller.UpdateShow);
+router.patch('/updateShow/:id', controller.UpdateShow);
 
 module.exports = router;
