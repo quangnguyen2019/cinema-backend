@@ -6,13 +6,18 @@ module.exports.GetUsers = async function (req, res) {
 };
 
 module.exports.GetDetailUser = async function(req, res) {
-    const id = req.params.id;
+    const email = req.params.email;
 
     const user = await User.findOne({
         where: {
-            id: id
+            email: email
         }
     });
+
+    if (!user) {
+        res.json({success: false});
+        return;
+    }
 
     res.json(user);
 };

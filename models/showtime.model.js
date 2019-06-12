@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('./db');
 
-const Show = db.define('Shows', {
+const Showtime = db.define('Showtime', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -41,6 +41,6 @@ const Show = db.define('Shows', {
     }
 });
 
-// Show.sync({force: true});
+// Showtime.sync({force: true});
 
-module.exports = Show;
+module.exports = Showtime;

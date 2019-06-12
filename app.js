@@ -10,7 +10,7 @@ const apiUserRoute = require('./api/routes/user.route');
 const apiMovieRoute = require('./api/routes/movie.route');
 const apiCinemaRoute = require('./api/routes/cinema.route');
 const apiCinemaGroupRoute = require('./api/routes/cinema_group.route');
-const apiShowRoute = require('./api/routes/show.route');
+const apiShowtimeRoute = require('./api/routes/showtime.route');
 const apiBookingRoute = require('./api/routes/booking.route');
 const apiTicketRoute = require('./api/routes/ticket.route');
 
@@ -22,7 +22,7 @@ const apiTicketRoute = require('./api/routes/ticket.route');
 // const ticket = require('./models/ticket.model');
 
 const app = express();
-const port = 1234 || process.env.PORT;
+const port = 1235 || process.env.PORT;
 
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -59,7 +59,7 @@ app.use('/users', apiUserRoute);
 app.use('/movies', apiMovieRoute);
 app.use('/cinemas', apiCinemaRoute);
 app.use('/cinema-groups', apiCinemaGroupRoute);
-app.use('/shows', apiShowRoute);
+app.use('/showtimes', apiShowtimeRoute);
 app.use('/bookings', apiBookingRoute);
 app.use('/tickets', apiTicketRoute);
 
@@ -69,7 +69,7 @@ app.use('/movie', movieRoute);
 app.use('/login', authRoute);
 
 
-// Listen Port
+// Listen Port  {force: true }
 db.sync().then(() => {
     app.listen(port);
     console.log('Server is listening on port ' + port);

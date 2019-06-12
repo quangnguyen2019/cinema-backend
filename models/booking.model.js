@@ -21,7 +21,7 @@ const Booking = db.define('Booking', {
         allowNull: false,
 
         references: {
-            model: 'Shows',
+            model: 'Showtime',
             key: 'id',
             deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
