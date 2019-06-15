@@ -8,6 +8,8 @@ router.get('/getMovies', controller.GetMovies);
 
 router.get('/getMoviesHasMostViews', controller.GetMoviesHasMostViews);
 
+router.get('/getMoviesNewlyReleased', controller.GetMoviesNewlyReleased);
+
 router.get('/getMovie/:id', controller.GetDetailMovie);
 
 router.post('/addMovie', controller.AddMovie);

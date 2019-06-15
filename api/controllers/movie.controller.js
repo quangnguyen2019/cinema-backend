@@ -15,6 +15,16 @@ module.exports.GetMoviesHasMostViews = async function(req, res) {
     res.json(movies);
 };
 
+module.exports.GetMoviesNewlyReleased = async function(req, res) {
+    const movies = await Movie.findAll({
+        order: [
+            ['publish_date', 'DESC']
+        ]
+    });
+
+    res.json(movies);
+}
+
 module.exports.GetDetailMovie = async function(req, res) {
     const id = req.params.id;
     
