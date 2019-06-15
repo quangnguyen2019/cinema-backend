@@ -5,6 +5,16 @@ module.exports.GetMovies = async function(req, res) {
     res.json(movies);
 };
 
+module.exports.GetMoviesHasMostViews = async function(req, res) {
+    const movies = await Movie.findAll({
+        order: [
+            ['views', 'DESC']
+        ]
+    });
+    
+    res.json(movies);
+};
+
 module.exports.GetDetailMovie = async function(req, res) {
     const id = req.params.id;
     

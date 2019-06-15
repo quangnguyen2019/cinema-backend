@@ -6,6 +6,8 @@ const router = express.Router();
 
 router.get('/getMovies', controller.GetMovies);
 
+router.get('/getMoviesHasMostViews', controller.GetMoviesHasMostViews);
+
 router.get('/getMovie/:id', controller.GetDetailMovie);
 
 router.post('/addMovie', controller.AddMovie);

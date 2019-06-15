@@ -22,6 +22,9 @@ const Movie = db.define('Movie', {
     duration: {
         type: Sequelize.INTEGER,
         allowNull: false
+    },
+    views: {
+        type: Sequelize.INTEGER
     }
 });
 
