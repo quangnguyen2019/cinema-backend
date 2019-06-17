@@ -10,9 +10,11 @@ module.exports.GetShowtimes = async function (req, res) {
 
 module.exports.GetShowtimesByMovie = async function (req, res) {
     const id = req.params.id;
-    const query = 'select start_time ' +
-                  'from "Showtime" as st, "Movie" as mv ' +
-                  'where st.movie_id = mv.' + id;
+    const query = 'select distinct st.id as show_time_id, start_time, date_showing, cgp.name as cinemaGroup ' +
+                  'from "Cinema" as cin join "Cinema_Group" as cgp on (cin.cinema_group_id = cgp.id) ' +
+                        'join "Showtime" as st on (cin.id = st.cinema_id) ' +
+                        'join "Movie" as mv on (st.movie_id = mv.id) ' +
+                  'where st.movie_id = ' + id;
     
     var showtimes = null;
 

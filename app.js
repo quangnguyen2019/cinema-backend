@@ -2,9 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const db = require('./models/db');
-const indexRoute = require('./routes/index.route');
-const authRoute = require('./routes/auth.route');
-const movieRoute = require('./routes/movie.route');
 
 const apiUserRoute = require('./api/routes/user.route');
 const apiMovieRoute = require('./api/routes/movie.route');
@@ -13,13 +10,6 @@ const apiCinemaGroupRoute = require('./api/routes/cinema_group.route');
 const apiShowtimeRoute = require('./api/routes/showtime.route');
 const apiBookingRoute = require('./api/routes/booking.route');
 const apiTicketRoute = require('./api/routes/ticket.route');
-
-// const cinemaGroup = require('./models/cinema_group.model');
-// const cinema = require('./models/cinema.model');
-// const movie = require('./models/movie.model');
-// const show = require('./models/show.model');
-// const booking = require('./models/booking.model');
-// const ticket = require('./models/ticket.model');
 
 const app = express();
 const port = 1235 || process.env.PORT;
@@ -62,11 +52,6 @@ app.use('/cinema-groups', apiCinemaGroupRoute);
 app.use('/showtimes', apiShowtimeRoute);
 app.use('/bookings', apiBookingRoute);
 app.use('/tickets', apiTicketRoute);
-
-// Routes
-app.use('/', indexRoute);
-app.use('/movie', movieRoute);
-app.use('/login', authRoute);
 
 
 // Listen Port  {force: true }
