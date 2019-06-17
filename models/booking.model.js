@@ -16,7 +16,7 @@ const Booking = db.define('Booking', {
             deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
     },
-    show_id: {
+    showtime_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
 
@@ -28,6 +28,10 @@ const Booking = db.define('Booking', {
     },
     created_date: {
         type: Sequelize.DATE,
+        allowNull: false
+    },
+    seats: {
+        type: Sequelize.STRING(20),
         allowNull: false
     },
     total: {
