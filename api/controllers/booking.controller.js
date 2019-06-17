@@ -1,6 +1,3 @@
-const Sequelize = require('sequelize');
-
-const db = require('../../models/db');
 const Booking = require('../../models/booking.model');
 
 module.exports.GetBookings = async function (req, res) {

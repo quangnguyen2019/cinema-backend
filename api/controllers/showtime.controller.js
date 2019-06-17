@@ -8,7 +8,23 @@ module.exports.GetShowtimes = async function (req, res) {
     res.json(showtimes);
 };
 
-module.exports.GetDetailShowtime = async function(req, res) {
+module.exports.GetShowtimesByMovie = async function (req, res) {
+    const id = req.params.id;
+    const query = 'select start_time ' +
+                  'from "Showtime" as st, "Movie" as mv ' +
+                  'where st.movie_id = mv.' + id;
+    
+    var showtimes = null;
+
+    await db.query(query, { type: Sequelize.QueryTypes.SELECT })
+            .then(result => {
+                showtimes = result;
+            });
+
+    res.json(showtimes);
+};
+
+module.exports.GetAllInfoByShowtime = async function(req, res) {
     const id = req.params.id;
     const query = 'select distinct mv.name as movie_name, cgp.name as cinema_group_name, st.start_time ' +
                   'from "Cinema" as cin join "Cinema_Group" as cgp on (cin.cinema_group_id = cgp.id) ' +
@@ -18,9 +34,10 @@ module.exports.GetDetailShowtime = async function(req, res) {
 
     var showtime = null;
     
-    await db.query(query, { type: Sequelize.QueryTypes.SELECT}).then(result => {
-        showtime = result;
-    });
+    await db.query(query, { type: Sequelize.QueryTypes.SELECT})
+            .then(result => {
+                showtime = result;
+            });
 
     res.json(showtime);
 };

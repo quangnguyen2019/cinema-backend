@@ -27,7 +27,11 @@ const Booking = db.define('Booking', {
         }
     },
     created_date: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
+        allowNull: false
+    },
+    created_time: {
+        type: Sequelize.TIME,
         allowNull: false
     },
     seats: {

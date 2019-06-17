@@ -6,7 +6,9 @@ const router = express.Router();
 
 router.get('/getShowtimes', controller.GetShowtimes);
 
-router.get('/getShowtime/:id', controller.GetDetailShowtime);
+router.get('/getShowtimesByMovie/:id', controller.GetShowtimesByMovie);
+
+router.get('/getAllInfoByShowtime/:id', controller.GetAllInfoByShowtime);
 
 router.post('/addShowtime', controller.AddShowtime);
 

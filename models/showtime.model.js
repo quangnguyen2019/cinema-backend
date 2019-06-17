@@ -28,11 +28,15 @@ const Showtime = db.define('Showtime', {
         }
     },
     start_time: {
-        type: Sequelize.DATE,
+        type: Sequelize.TIME,
         allowNull: false
     },
     end_time: {
-        type: Sequelize.DATE,
+        type: Sequelize.TIME,
+        allowNull: false
+    },
+    date_showing: {
+        type: Sequelize.DATEONLY,
         allowNull: false
     },
     price: {
