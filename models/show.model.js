@@ -1,48 +1,46 @@
 const Sequelize = require('sequelize');
 const db = require('./db');
 
-const Booking = db.define('Booking', {
+const Show = db.define('Shows', {
     id: {
-        type: Sequelize.UUID,
-        primaryKey: true,
-        defaultValue: Sequelize.UUIDV4
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
     },
-    user_id: {
+    cinema_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
 
         references: {
-            model: 'Users',
+            model: 'Cinema',
             key: 'id',
             deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
     },
-    showtime_id: {
+    movie_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
 
         references: {
-            model: 'Showtime',
+            model: 'Movie',
             key: 'id',
             deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
     },
-    created_date: {
-        type: Sequelize.DATEONLY,
+    start_time: {
+        type: Sequelize.DATE,
         allowNull: false
     },
-    created_time: {
-        type: Sequelize.TIME,
+    end_time: {
+        type: Sequelize.DATE,
         allowNull: false
     },
-    seats: {
-        type: Sequelize.STRING(20),
-        allowNull: false
-    },
-    total: {
-        type: Sequelize.DECIMAL(10, 2),
+    price: {
+        type: Sequelize.DECIMAL(10,2),
         allowNull: false
     }
 });
 
-module.exports = Booking;
+// Show.sync({force: true});
+
+module.exports = Show;

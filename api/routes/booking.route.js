@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/getBookings', controller.GetBookings);
 
-router.get('/getBooking/:id', controller.GetDetailBooking);
+router.get('/getSeatsByShowtime/:id', controller.GetSeatsByShowtime);
 
 router.post('/addBooking', controller.AddBooking);
 
