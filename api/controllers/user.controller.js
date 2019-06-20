@@ -45,7 +45,10 @@ module.exports.UpdateUser = async function(req, res) {
     const user = await User.update(
         { 
             password: req.body.password, 
-            full_name: req.body.full_name 
+            surname: req.body.surname,
+            email: req.body.email,
+            first_name: req.body.first_name,
+            phone: req.body.phone
         }, {
             where: {
                 id: id

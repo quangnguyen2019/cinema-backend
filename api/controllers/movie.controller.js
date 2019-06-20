@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+
+const db = require('../../models/db');
 const Movie = require('../../models/movie.model');
 
 module.exports.GetMovies = async function(req, res) {
@@ -21,6 +24,24 @@ module.exports.GetMoviesNewlyReleased = async function(req, res) {
             ['publish_date', 'DESC']
         ]
     });
+
+    res.json(movies);
+}
+
+module.exports.GetMoviesByCinemaGroup = async function(req, res) {
+    const id = req.params.id;
+    const query = 'select distinct mv.id, mv.name, mv.poster_image ' +
+                  'from "Cinema_Group" as cgp join "Cinema" as cin on (cgp.id = cin.cinema_group_id) ' +
+                        'join "Showtime" as st on (cin.id = st.cinema_id) ' +
+                        'join "Movie" as mv on (mv.id = st.movie_id)' +
+                  'where cgp.id = ' + id;
+
+    var movies = null;
+
+    await db.query(query, { type: Sequelize.QueryTypes.SELECT })
+            .then(result => {
+                movies = result;
+            });
 
     res.json(movies);
 }

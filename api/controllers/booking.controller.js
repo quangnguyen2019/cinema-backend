@@ -24,6 +24,25 @@ module.exports.GetSeatsByShowtime = async function(req, res) {
     res.json(seats);
 };
 
+module.exports.GetBookingsByUser = async function(req, res) {
+    const userId = req.params.id;
+    const query = 'select mv.name as movie_name, cgp.name as cinema_gr_name, cin.name as room, st.date_showing, st.start_time, bk.seats ' +
+                  'from "Booking" as bk join "Showtime" as st on (bk.showtime_id = st.id) ' +
+                        'join "Movie" as mv on (st.movie_id = mv.id) ' +
+                        'join "Cinema" as cin on (st.cinema_id = cin.id) ' +
+                        'join "Cinema_Group" as cgp on (cin.cinema_group_id = cgp.id) ' +
+                  'where bk.user_id = ' + userId;
+
+    var booking = null;
+
+    await db.query(query, { type: Sequelize.QueryTypes.SELECT })
+            .then(result => {
+                booking = result;
+            });
+
+    res.json(booking);
+}
+
 module.exports.AddBooking = async function(req, res) {
     const booking = await Booking.create(req.body);
     res.json(booking);

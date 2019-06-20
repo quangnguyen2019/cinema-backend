@@ -36,7 +36,7 @@ const Booking = db.define('Booking', {
         allowNull: false
     },
     seats: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING,
         allowNull: false
     },
     total: {

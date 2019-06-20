@@ -8,6 +8,8 @@ router.get('/getBookings', controller.GetBookings);
 
 router.get('/getSeatsByShowtime/:id', controller.GetSeatsByShowtime);
 
+router.get('/getBookingsByUser/:id', controller.GetBookingsByUser);
+
 router.post('/addBooking', controller.AddBooking);
 
 router.delete('/removeBooking/:id', controller.RemoveBooking);

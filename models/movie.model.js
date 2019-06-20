@@ -28,7 +28,6 @@ const Movie = db.define('Movie', {
     }
 });
 
-
 // Movie.sync({force: true});
 
 module.exports = Movie;

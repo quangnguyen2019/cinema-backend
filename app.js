@@ -49,7 +49,7 @@ app.use(function (req, res, next) {
 app.use('/users', apiUserRoute);
 app.use('/movies', apiMovieRoute);
 app.use('/cinemas', apiCinemaRoute);
-app.use('/cinema-groups', apiCinemaGroupRoute);
+app.use('/cinemaGroups', apiCinemaGroupRoute);
 app.use('/showtimes', apiShowtimeRoute);
 app.use('/bookings', apiBookingRoute);
 app.use('/tickets', apiTicketRoute);
